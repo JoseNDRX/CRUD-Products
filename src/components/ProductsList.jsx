@@ -1,9 +1,4 @@
-const ProductsList = ( { productsData, deleteProductAction, selectProduct } ) => {
-
-  const confirmDelete = (id) => {
-    const resultConfirm = confirm('Deseas continuar?')
-    if(resultConfirm) deleteProductAction(id)
-  }
+const ProductsList = ( { productsData, selectProduct, getDeleteAlert } ) => {
 
   return (
     <ul className="productCard-container">
@@ -18,7 +13,7 @@ const ProductsList = ( { productsData, deleteProductAction, selectProduct } ) =>
           </div>
           <div className="productBtns">
             <div className="editBtn" onClick={ () => selectProduct (product)}><i className='bx bx-edit'></i></div>
-            <div className="deleteBtn" onClick={ () => confirmDelete ( product.id ) }><i className='bx bx-trash'></i></div>
+            <div className="deleteBtn" onClick={ () =>  getDeleteAlert(product) }><i className='bx bx-trash'></i></div>
           </div>
           
 

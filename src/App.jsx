@@ -9,6 +9,7 @@ function App() {
   const [ products, setProducts ] = useState ( [ ] )
   const [ showForm, setShowForm ] = useState( false )
   const [ deleteAlert, setDeleteAlert ] = useState( false )
+  const [ productToDelete, setProductToDelete ] = useState( null )
 
   useEffect ( () => {
     getData()
@@ -28,10 +29,14 @@ function App() {
     .catch ( error => console.error( error ) )
   }
   
-  const deleteProduct = idProduct => {    
+  const deleteProduct = productToDelete => {    
     axios
-    .delete(`https://products-crud.academlo.tech/products/${idProduct}/`)
-    .then( () => getData() )
+    .delete(`https://products-crud.academlo.tech/products/${productToDelete?.id}/`)
+    .then( () => {
+      getData(),
+      setDeleteAlert(false)
+      setProductToDelete(null)
+    } )
     .catch ( error => console.error( error ) )
   }
 
@@ -50,6 +55,14 @@ function App() {
       })
       .catch ( error => console.error( error ) )
   }
+  const getDeleteAlert = (product) => {
+    setDeleteAlert(true)
+    setProductToDelete(product)
+  }
+  const cancelDelete = () => {
+    setDeleteAlert(false)
+    setProductToDelete(null)
+  }
 
   return (
     <div className="App">
@@ -62,6 +75,7 @@ function App() {
       <div className="cube"></div>
 
       <section className="header">
+        <img src="./stocks.png" alt="" />
         <h1 className="header__title">Listado de Productos</h1>
         <button className="header__callForm" onClick={ () => setShowForm(true)}><i className='bx bx-plus-medical' style={{color:'#14213d'}}></i> Agregar Producto
         </button>
@@ -79,13 +93,16 @@ function App() {
 
       <ProductsList 
       productsData = {products}
-      deleteProductAction = { id => deleteProduct(id) }      
-      selectProduct = { user => selectProduct(user) }
-      setDeleteAlert = { setDeleteAlert }
+      deleteProductAction = { id => deleteProduct(id) } //     
+      selectProduct = { product => selectProduct(product) }
+      getDeleteAlert = { getDeleteAlert }
       />
       
       { deleteAlert &&
         <DeleteAlert
+        productToDelete ={ productToDelete}
+        cancelDelete = { cancelDelete }
+        deleteProduct = { deleteProduct }
         />
       }
     
