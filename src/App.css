@@ -110,6 +110,8 @@ body{
 .header__title{
   font-size: 1.75rem;
   color: #ffffff;
+  background: #f15025;
+  text-shadow: #474747 2px 4px 2px;
   margin-left: 5px;
 }
 .header__callForm{
