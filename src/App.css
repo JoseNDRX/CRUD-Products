@@ -1,0 +1,244 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(228, 228, 228);
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif};
+.App{
+  width: 100%;
+  height: 100%;
+}
+.cube {
+  position: absolute;
+  top: 65%;
+  left: 45%;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #bfc4bf;
+  border-radius: 25%;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+          transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  -webkit-animation: cube 12s ease-in forwards infinite;
+          animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  left: 15%;
+  top: 30%;
+  border-color: #ced0ce;
+}
+.cube:nth-child(3) {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+  left: 75%;
+  top: 70%;
+  border-color: #8d918d;
+}
+.cube:nth-child(4) {
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+  left: 85%;
+  top: 25%;
+  border-color: #8d918d;
+}
+.cube:nth-child(5) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  left: 10%;
+  top: 85%;
+  border-color: #8d918d;
+}
+.cube:nth-child(6) {
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s;
+  left: 55%;
+  top: 35%;
+  border-color: #bfc4bf;
+}
+
+@-webkit-keyframes cube {
+  from {
+    -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+            transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cube {
+  from {
+    -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(17) rotate(960deg) translate(-50%, -50%);
+            transform: scale(17) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+.header{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #f15025;
+  opacity: .9;
+  z-index: 1000;
+}
+.header__title{
+  font-size: 1.75rem;
+  color: #ffffff;
+  margin-left: 5px;
+}
+.header__callForm{
+  margin-left: 2rem;
+  margin-right: 5px;
+  font-size: 0.75rem;
+  border: 2px solid #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
+  width: 150px;
+}
+.productCard-container{
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 15px;
+  row-gap: 15px;
+  padding: 1rem 0;
+}
+.productCard{
+  z-index: 1100;
+  border: 2px solid #8d918d;
+  box-shadow: 0 10px 20px rgba(218, 102, 25, 0.19);
+  border-radius: 15px;
+  margin: auto 5px;
+  list-style: none;
+  width: 300px;
+  min-width: 175px;
+  height: 110px;
+  background-color: #e3e6e3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 30px;
+}
+.productName{
+  width: 100%;
+  font-size: 20px;
+  align-self: center;
+  justify-self: center;
+  text-align: center;  
+  border-bottom: 1px solid #191919;
+}
+span{
+  color:#281b70;
+  font-size: 14px;
+}
+.productInfo{
+  margin-left:5px;
+  width: 60%;
+}
+.productBtns{  
+  width: 20%;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  float: right;
+}
+.bx{
+  cursor: pointer;
+}
+.bx-edit{
+  font-size: 1.5rem;
+}
+.bx-trash{
+  font-size: 1.5rem;
+  color: red;
+}
+.productForm-container{
+  z-index: 1200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #19191959;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.productForm{
+  padding-top: 15px;
+  width: 320px;
+  height: 300px;
+  background-color:white;
+  border: 2px solid #f15025;
+  box-shadow: 0 10px 20px rgba(8, 8, 8, 0.19);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.productForm h2{
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  background: #f15025;
+  text-shadow: #474747 2px 4px 2px;
+}
+label{
+  font-weight: bolder;
+}
+input{
+  display: flex;
+  align-self: flex-end;
+  font-size: 16px;
+  height: 30px;
+}
+.checkBox-container{
+  padding: 5px 0;
+  width: 35%;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+
+}
+.checkBox{
+  display: flex;
+  font-size: 10px;
+  align-self: baseline;
+  height: 20px;
+}
+.btnContainer{
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btnContainer button{
+  font-size: 12px;
+  border: 2px solid #191919;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
+}
