@@ -37,7 +37,7 @@ const ProductsForm = ( { setShowForm, createProduct, selectedProduct, updateProd
     return (
         <div className="productForm-container">
             <form className="productForm" onSubmit={ handleSubmit( submit ) }>
-                <h2>{selectedProduct ? "Modificar Producto" : "Resgistro de Producto"}</h2>
+                <h2>{selectedProduct ? "Modificar Producto" : "Registro de Producto"}</h2>
                 <div>
                     <label 
                     htmlFor="name">
