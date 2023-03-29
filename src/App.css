@@ -178,6 +178,7 @@ span{
 }
 .bx-edit{
   font-size: 1.5rem;
+  color: black;
 }
 .bx-trash{
   font-size: 1.5rem;
@@ -218,6 +219,7 @@ span{
 }
 label{
   font-weight: bolder;
+  color: black;
 }
 input{
   display: flex;
